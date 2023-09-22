@@ -1,6 +1,7 @@
 import Form from "../Form/form";
 import Title from "../Title/title";
 import Container from "../Container/container";
+import TodoList from "../TodoList/todoList";
 import { useState } from "react";
 import './app.css';
 
@@ -26,8 +27,18 @@ function App() {
             }
           />
         </div>
+        <TodoList
+          todos={todos}
+          removeTodo={
+            (todoIndex) => {
+              const newTodos = todos.filter((_, index) => index !== todoIndex);
+              setTodos(newTodos);
+            }
+          }
+        />
       </Container>
     </div>
+
   );
 }
 export default App;
